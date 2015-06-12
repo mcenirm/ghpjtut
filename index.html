@@ -1,17 +1,23 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>gh-pages simple example</title>
-  </head>
-  <body>
-    <h1>This is documentation
-</h1>
-<p>Just a simple HTML page, where you could put some documentation.</p>
-<p>Here's a TOC for sub-pages.</p>
-    <ul>
-      <li><a href="page1.html">page1.html</a></li>
-      <li><a href="page2.html">page2.html</a></li>
-      <li><a href="page3.html">page3.html</a></li>
-    </ul>
-  </body>
-</html>
+---
+layout: default
+---
+
+<div class="home">
+
+  <h1 class="page-heading">Posts</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
